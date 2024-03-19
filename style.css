@@ -1,13 +1,28 @@
-/* html {
+html {
   height: 100%;
   width: 100%;
+  body {background-color: #f0fff0;}
  }
 
+body{
+  border:solid;
+  border-color:deeppink;
+  border-width:5px;
+}
+
+h1{
+  font-size: 250px;
+  color: #df00ff;
+}
 
 
-h3 {
-  color: darkmagenta
-} */
 
-
+h2{
+  background-color:cyan;
+  color:deeppink;
+  margin: auto;
+  padding:30px;
+  text-align:center;
+  border-radius: 15px;
+}
 
