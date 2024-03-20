@@ -25,53 +25,37 @@ infoMain.addEventListener("mouseout", () => {
   infoMain.style.color = "blue";
 });
 
-
-function handleSubmit(e){
+// The e parameter represents the event object that gets passed to the function when it's called. This object contains information about the event, such as the form element that triggered it.
+function handleSubmit(e) {
   e.preventDefault()
   let searchField = document.getElementById("search-term");
-  let searchTerm = searchField.value; 
+  let searchTerm = searchField.value;
   console.log(searchTerm)
   let allElements = document.querySelectorAll(".main-text")
   console.log(allElements[0]);
-// let elementsArr = Array.from(allElements);
+  // let elementsArr = Array.from(allElements);
   // console.log(elementsArr)
   // console.log(elementsArr[0].textContent)
-for (let i = 0; i < allElements.length; i++){
-  // this if statement is checking if something is truthy (things that evaluate to true)
-  
-   console.log(allElements[i].innerText)  
-let words = allElements[i].innerText.split(" ")
-console.log(words)
-    // things to match: all lowercase, word with comma, word with period.
-    // use a conditional statement to find matches for all lowercase with comma and lowercase with period. try to console log each word match.
-  // next, use a for loop and an if statement to find instances of the search term. (it will highlight baby each time it shows up)
+  for (let i = 0; i < allElements.length; i++) {
+    let currentElement = allElements[i];
+    if (currentElement.textContent.includes(searchTerm))
+      console.log(currentElement.textContent)
+    // this if statement is checking if something is truthy (things that evaluate to true)
 
- for (let j = 0; j < words.length; i++) {
-  let currentWord = words[j].toLowerCase(); // Make search case-insensitive
-  let doesMatch = currentWord === searchTerm.toLowerCase();
+    for (let i = 0; i < allElements.length; i++) {
+      let words = allElements[i].innerText.split(" ");
 
-  if (doesMatch) {
-    console.log(words[j]); // Print the matching word with original casing
-  } else {
-    console.log("No match found"); // Clearer message
+      for (let j = 0; j < words.length; j++) {
+        if (words[j].toLowerCase() === searchTerm.toLowerCase()) {
+          allElements[i].style.backgroundColor = "pink"; 
+            console.log(allElements[i]);
+          }
+        }
+      }
+    }
   }
-}
- 
-}
-    
-  }
-   
-
-
-
-  
-
-
-
-
-let form =document.getElementById("search")
+let form = document.getElementById("search")
 form.addEventListener("submit", handleSubmit)
-
 
 
 
